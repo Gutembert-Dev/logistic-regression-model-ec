@@ -1,0 +1,16 @@
+pipelines:
+  default:
+    - step:
+       script:
+          - echo $CodeCommitKey > ~/.ssh/codecommit_bitbucket.tmp
+          - base64 -di ~/.ssh/codecommit_bitbucket.tmp > ~/.ssh/codecommit_bitbucket
+          - chmod 400 ~/.ssh/codecommit_bitbucket
+          - echo $CodeCommitConfig > ~/.ssh/config.tmp
+          - base64 -di ~/.ssh/config.tmp > ~/.ssh/config
+          - chmod 600 ~/.ssh/config
+          - cat ~/.ssh/config
+          - set +e
+          - ssh -o StrictHostKeyChecking=no $CodeCommitHost
+          - set -e
+          - git remote set-url origin ssh://$CodeCommitRepo
+          - git push origin $BITBUCKET_BRANCH

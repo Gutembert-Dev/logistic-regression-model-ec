@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+  explore_ai_demo:
+    container_name: "explore_ai_demo"
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - 8080:8800
+

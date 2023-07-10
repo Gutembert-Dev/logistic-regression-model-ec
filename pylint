@@ -1,0 +1,2 @@
+#!/bin/bash
+pylint evolutioncreditml --rcfile=.pylintrc -f text

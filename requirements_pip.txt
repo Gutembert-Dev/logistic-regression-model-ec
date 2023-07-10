@@ -1,0 +1,16 @@
+
+# Development
+coverage
+pylint
+pycodestyle
+
+# Application
+boto3
+flask
+gevent
+gunicorn
+joblib
+pandas
+sagemaker
+scikit-learn
+
