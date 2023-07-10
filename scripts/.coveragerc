@@ -1,0 +1,26 @@
+[run]
+omit=*/usr/local/lib/*
+     */tests/*
+     *__init__*
+     explore_ai_demo/classifier/nginx.conf
+     explore_ai_demo/classifier/serve
+     explore_ai_demo/classifier/wsgi.py
+     explore_ai_demo/utils.py
+     explore_ai_demo/constants.py
+     scripts/*
+     blub
+branch=False
+concurrency=multiprocessing
+
+[report]
+partial_branches=True
+show_missing=True
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
+    @abc.abstractmethod
+    @abc.abstractproperty
+    def _dependencies(self):
+
+[html]
+directory=cover
