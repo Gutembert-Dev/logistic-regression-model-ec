@@ -38,4 +38,4 @@ docker-compose -f docker/docker-compose.yml run -v "//$(PWD)/models:/opt/ml/mode
 
 echo -e "\nRun container to serve on port 8080"
 IMAGE_NAME=$(echo $(docker ps -a | awk '{print $2}') | awk '{print $2}')
-docker run --rm -v //$(pwd)/models:/opt/ml/model -p 8080:8080 $IMAGE_NAME python3 ./serve
+docker run --rm -v "//$(pwd)/models:/opt/ml/model" -p 8080:8080 $IMAGE_NAME python3 ./serve
